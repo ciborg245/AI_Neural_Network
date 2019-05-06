@@ -4,28 +4,31 @@ import math
 def sig(x):
     return 1 / (1 + np.exp(-x))
 
-def feed_forward(x, H1, H2):
-    sigmoide = np.vectorize(sig)
+sigmoide = np.vectorize(sig)
 
-    m, n = x.shape
-    # print(x)
-    # print(np.ones(m))
-    # print(np.ones(n).reshape(n, 1))
-    A1 = np.hstack((
-        np.ones(m).reshape(m, 1),
-        x
-    ))
-
-    print(A1)
-
+# def feed_forward(x, H1, H2):
+#     sigmoide = np.vectorize(sig)
+#
+#     m, n = x.shape
+#     # print(x)
+#     # print(np.ones(m))
+#     # print(np.ones(n).reshape(n, 1))
+#     A1 = np.hstack((
+#         np.ones(m).reshape(m, 1),
+#         x
+#     ))
+#
+#     print(A1)
+#
     # print(x)
     # print(H1)
     # a1 = np.vstack((1, x))
     #
-    print(H1.shape)
+    # print(H1.shape)
     # z2 = np.matmul(H1, a1)
     #
     # a2 = sigmoide(z2)
+    # print(a2)
     # a2 = np.vstack((1, a2))
     #
     # z3 = np.matmul(H2, a2)
@@ -33,3 +36,36 @@ def feed_forward(x, H1, H2):
     # a3 = sigmoide(z3)
     #
     # return a3
+
+def feed_forward(x, theta):
+    thetaLen = len(theta)
+    print(x.shape)
+    print(theta1.shape)
+    x = x.T
+    z = []
+    a = [x]
+    for i in range(thetaLen):
+        Z.append(
+            theta[i] @ a[i]
+        )
+        a_asdf = sigmoide(z[i])
+
+        if i < thetaLen - 2:
+            m, n = a_asdf.shape
+            A.append(
+                np.vstack((
+                    np.ones(n),
+                    a_asdf
+                ))
+            )
+        else:
+            A.append(a_Asdf)
+
+    return A[-1:]
+
+    # z2 = theta1 @ x
+    # print(z2.shape)
+    # for
+    # print('z2 finished')
+    # a2 = sigmoide(z2)
+    # print('sigmoid finished')
