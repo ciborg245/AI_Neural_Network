@@ -2,7 +2,7 @@ import numpy as np
 import math
 
 def sig(x):
-    return 1 / (1 + np.exp(-x))
+    return 1.0 / (1.0 + np.exp(-x))
 
 sigmoide = np.vectorize(sig)
 
@@ -21,6 +21,7 @@ def feed_forward(x, theta):
 
             theta_mod = np.hstack((
                 np.ones(m).reshape(m, 1),
+                # np.random.uniform(0, 0.1, m).reshape(m, 1),
                 theta[i]
             ))
             # print('theta mod')
